@@ -36,7 +36,7 @@ Because vanilla ops aren’t enough. StrictCraft doesn’t try to be flashy, it�
 
 ## 📄 License & Support
 
-This project is released under this [MIT License](https://docs.google.com/document/d/1mTpqyCNbrQaWgidLRjqskjBCO7442lzgif8h7FXn0bc/edit?usp=sharing) 
+This project is released under this [MIT License](https://github.com/RickPerix/strictcraft/blob/main/LICENSE) 
 
 Need help or want to report an issue? Reach out on Discord: `https://discord.gg/b4MFEa7tkP`
 
