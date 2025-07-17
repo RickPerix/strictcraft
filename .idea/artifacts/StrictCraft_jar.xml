@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="StrictCraft:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/StrictCraft_jar</output-path>
+    <root id="archive" name="StrictCraft.jar">
+      <element id="module-output" name="StrictCraft" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/LICENSE.txt" />
+    </root>
+  </artifact>
+</component>

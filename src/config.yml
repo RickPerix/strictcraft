@@ -1,0 +1,58 @@
+# =====================================
+# 🛡️ STRICTCRAFT CONFIGURATION FILE
+# =====================================
+# Configure restrictions for commands, game modes, block usage, and monitoring
+# Plugin version: 1.0 – by RickPerix
+
+# -----------------------------
+# 🔐 CORE PROTECTION SETTINGS
+# -----------------------------
+strictcraft:
+  # Whether StrictCraft is active globally
+  enabled: true
+
+  # List of players excluded from restrictions
+  # These players will NOT be affected by command, gamemode, or block protections
+  excluded-players:
+    - "ExampleUser"
+
+# -----------------------------
+# 🚫 BLOCKED COMMAND SETTINGS
+# -----------------------------
+blocked-commands:
+  # List of command prefixes to block for non-whitelisted players
+  # Matching is case-insensitive and based on the start of the command
+  list:
+    - "/gmc"
+    - "/gm 1"
+    - "/gm c"
+    - "/gamemode creative"
+    - "/gamemode c"
+    - "/gamemode 1"
+    - "/creative"
+    - "/build"
+    - "/instantbuild"
+    - "/fly creative"
+    - "/creativefly"
+    - "/give"
+    - "/minecraft:give"
+    - "/enchant"
+    - "/effect"
+    - "/minecraft:enchant"
+    - "/minecraft:effect"
+    - "/item"
+    - "/minecraft:item"
+
+# -----------------------------
+# 🎮 GAME MODE MONITORING
+# -----------------------------
+gamemode-enforcement:
+  # Frequency in ticks for verifying that players are in SURVIVAL mode (20 ticks = 1 second)
+  check-interval: 40
+
+# -----------------------------
+# 📦 COMMAND BLOCK PROTECTION
+# -----------------------------
+command-blocks:
+  # Whether to block placing and interacting with command blocks
+  block-usage: true
