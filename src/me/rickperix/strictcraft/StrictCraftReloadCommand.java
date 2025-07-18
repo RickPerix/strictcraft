@@ -22,13 +22,14 @@ public class StrictCraftReloadCommand implements CommandExecutor {
         }
 
         plugin.reloadConfig();
+
         plugin.getCommandBlocker().reload();
-        plugin.getGameModeMonitor().start();
         plugin.getCommandBlockProtector().reload();
 
-        plugin.getLogger().info("StrictCraft configuration reloaded by " + sender.getName());
-        sender.sendMessage(ChatColor.GREEN + "Configuration reloaded successfully!");
+        plugin.getGameModeMonitor().stop();
+        plugin.getGameModeMonitor().start();
 
+        sender.sendMessage(ChatColor.GREEN + "Configuration reloaded successfully!");
         return true;
     }
 }

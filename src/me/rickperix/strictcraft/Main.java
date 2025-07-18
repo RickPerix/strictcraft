@@ -13,7 +13,7 @@ import org.json.simple.parser.JSONParser;
 
 public class Main extends JavaPlugin {
 
-    private static final String CURRENT_VERSION = "1.0";
+    private static final String CURRENT_VERSION = "1.1";
     private static final String SPIGOT_ID = "";
     private static final int BSTATS_PLUGIN_ID = 26464;
 
@@ -38,7 +38,7 @@ public class Main extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(commandBlocker, this);
         pm.registerEvents(commandBlockProtector, this);
-        pm.registerEvents(new GameModeBlocker(this), this);
+        pm.registerEvents(new GameModeBlocker(this), this); // ✅ Corretto: 1 argomento
 
         gameModeMonitor.start();
 
@@ -55,7 +55,6 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         gameModeMonitor.stop();
-        getLogger().info("StrictCraft disabled!");
     }
 
     public static Main getInstance() {
@@ -84,9 +83,6 @@ public class Main extends JavaPlugin {
             InputStream resource = getResource("LICENSE.txt");
             if (resource != null) {
                 saveResource("LICENSE.txt", false);
-                getLogger().info("License file copied successfully!");
-            } else {
-                getLogger().warning("LICENSE.txt not found – skipping copy.");
             }
         }
     }

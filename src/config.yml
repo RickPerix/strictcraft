@@ -2,7 +2,7 @@
 # 🛡️ STRICTCRAFT CONFIGURATION FILE
 # =====================================
 # Configure restrictions for commands, game modes, block usage, and monitoring
-# Plugin version: 1.0 – by RickPerix
+# Plugin version: 1.1 – by RickPerix
 
 # -----------------------------
 # 🔐 CORE PROTECTION SETTINGS
@@ -22,6 +22,11 @@ strictcraft:
 blocked-commands:
   # List of command prefixes to block for non-whitelisted players
   # Matching is case-insensitive and based on the start of the command
+  #
+  # To disable command blocking entirely, use:
+  #   list:
+  #     - ""
+  # (Do not remove the list or leave it undefined, as this may cause all commands to be blocked by default)
   list:
     - "/gmc"
     - "/gm 1"
