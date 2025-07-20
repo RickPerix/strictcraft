@@ -2,7 +2,7 @@
 # 🛡️ STRICTCRAFT CONFIGURATION FILE
 # =====================================
 # Configure restrictions for commands, game modes, block usage, and monitoring
-# Plugin version: 1.1 – by RickPerix
+# Plugin version: 1.2 – by RickPerix
 
 # -----------------------------
 # 🔐 CORE PROTECTION SETTINGS
@@ -52,6 +52,10 @@ blocked-commands:
 # 🎮 GAME MODE MONITORING
 # -----------------------------
 gamemode-enforcement:
+  # Whether to activate periodic enforcement of Survival mode
+  # If set to false, StrictCraft will not force gamemode changes automatically
+  enabled: true
+
   # Frequency in ticks for verifying that players are in SURVIVAL mode (20 ticks = 1 second)
   check-interval: 40
 

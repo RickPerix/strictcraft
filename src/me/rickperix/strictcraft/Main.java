@@ -13,7 +13,7 @@ import org.json.simple.parser.JSONParser;
 
 public class Main extends JavaPlugin {
 
-    private static final String CURRENT_VERSION = "1.1";
+    private static final String CURRENT_VERSION = "1.2";
     private static final String SPIGOT_ID = "127094";
     private static final int BSTATS_PLUGIN_ID = 26464;
 
@@ -38,9 +38,11 @@ public class Main extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(commandBlocker, this);
         pm.registerEvents(commandBlockProtector, this);
-        pm.registerEvents(new GameModeBlocker(this), this); // ✅ Corretto: 1 argomento
+        pm.registerEvents(new GameModeBlocker(this), this);
 
-        gameModeMonitor.start();
+        if (configManager.isEnabled() && configManager.isGamemodeEnforcementEnabled()) {
+            gameModeMonitor.start();
+        }
 
         PluginCommand reloadCommand = getCommand("strictcraftreload");
         if (reloadCommand != null) {
@@ -75,6 +77,10 @@ public class Main extends JavaPlugin {
 
     public CommandBlockProtector getCommandBlockProtector() {
         return commandBlockProtector;
+    }
+
+    public void rebuildConfigManager() {
+        this.configManager = new ConfigManager(this);
     }
 
     private void copyLicenseFile() {

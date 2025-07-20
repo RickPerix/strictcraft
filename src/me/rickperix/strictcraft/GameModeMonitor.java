@@ -23,12 +23,12 @@ public class GameModeMonitor {
     public void start() {
         stop();
 
+        if (!plugin.getConfigManager().isEnabled()) return;
+        if (!plugin.getConfigManager().isGamemodeEnforcementEnabled()) return;
+
         int interval = plugin.getConfig().getInt("gamemode-enforcement.check-interval", 40);
 
-
         task = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
-            if (!plugin.getConfigManager().isEnabled()) return;
-
             for (Player player : Bukkit.getOnlinePlayers()) {
                 String name = player.getName();
                 UUID id = player.getUniqueId();
@@ -51,7 +51,6 @@ public class GameModeMonitor {
     public void stop() {
         if (task != null && !task.isCancelled()) {
             task.cancel();
-
         }
     }
 }

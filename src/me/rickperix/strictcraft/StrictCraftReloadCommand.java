@@ -23,13 +23,18 @@ public class StrictCraftReloadCommand implements CommandExecutor {
 
         plugin.reloadConfig();
 
+        plugin.rebuildConfigManager();
+
         plugin.getCommandBlocker().reload();
         plugin.getCommandBlockProtector().reload();
 
         plugin.getGameModeMonitor().stop();
-        plugin.getGameModeMonitor().start();
 
-        sender.sendMessage(ChatColor.GREEN + "Configuration reloaded successfully!");
+        if (plugin.getConfigManager().isEnabled() && plugin.getConfigManager().isGamemodeEnforcementEnabled()) {
+            plugin.getGameModeMonitor().start();
+        }
+
+        sender.sendMessage(ChatColor.GREEN + "StrictCraft configuration reloaded successfully.");
         return true;
     }
 }

@@ -23,6 +23,8 @@ public class GameModeBlocker implements Listener {
         String name = player.getName();
 
         if (!plugin.getConfigManager().isEnabled()) return;
+        if (!plugin.getConfigManager().isGamemodeEnforcementEnabled()) return;
+
         if (plugin.getConfigManager().isPlayerExcluded(name)) return;
         if (player.hasPermission("strictcraft.bypass")) return;
 
@@ -30,7 +32,6 @@ public class GameModeBlocker implements Listener {
         if (newMode != GameMode.CREATIVE) return;
 
         List<String> blockedCommands = plugin.getConfig().getStringList("blocked-commands.list");
-
         if (blockedCommands == null || blockedCommands.isEmpty()) return;
 
         for (String cmd : blockedCommands) {
