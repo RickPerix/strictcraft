@@ -5,6 +5,7 @@
       <element id="module-output" name="StrictCraft" />
       <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
       <element id="file-copy" path="$PROJECT_DIR$/src/LICENSE.txt" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/README.txt" />
     </root>
   </artifact>
 </component>

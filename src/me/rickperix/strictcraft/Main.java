@@ -13,7 +13,7 @@ import org.json.simple.parser.JSONParser;
 
 public class Main extends JavaPlugin {
 
-    private static final String CURRENT_VERSION = "1.2";
+    private static final String CURRENT_VERSION = "1.3";
     private static final String SPIGOT_ID = "127094";
     private static final int BSTATS_PLUGIN_ID = 26464;
 
@@ -29,6 +29,7 @@ public class Main extends JavaPlugin {
 
         saveDefaultConfig();
         copyLicenseFile();
+        copyReadmeFile();
 
         configManager = new ConfigManager(this);
         commandBlocker = new CommandBlocker(this);
@@ -39,6 +40,7 @@ public class Main extends JavaPlugin {
         pm.registerEvents(commandBlocker, this);
         pm.registerEvents(commandBlockProtector, this);
         pm.registerEvents(new GameModeBlocker(this), this);
+        pm.registerEvents(new JoinVersionListener(this), this);
 
         if (configManager.isEnabled() && configManager.isGamemodeEnforcementEnabled()) {
             gameModeMonitor.start();
@@ -89,6 +91,22 @@ public class Main extends JavaPlugin {
             InputStream resource = getResource("LICENSE.txt");
             if (resource != null) {
                 saveResource("LICENSE.txt", false);
+                getLogger().info("LICENSE.txt successfully copied to plugin folder.");
+            } else {
+                getLogger().warning("LICENSE.txt not found inside plugin jar.");
+            }
+        }
+    }
+
+    private void copyReadmeFile() {
+        File target = new File(getDataFolder(), "README.txt");
+        if (!target.exists()) {
+            InputStream resource = getResource("README.txt");
+            if (resource != null) {
+                saveResource("README.txt", false);
+                getLogger().info("README.txt successfully copied to plugin folder.");
+            } else {
+                getLogger().warning("README.txt not found inside plugin jar.");
             }
         }
     }
@@ -139,7 +157,7 @@ public class Main extends JavaPlugin {
                     getLogger().warning(" Download: https://spigotmc.org/resources/" + SPIGOT_ID);
                     getLogger().warning("====================================");
                 } else {
-                    getLogger().info("You're using the latest version!");
+                    getLogger().info("You're using the latest version.");
                 }
 
             } catch (Exception e) {
