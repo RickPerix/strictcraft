@@ -28,8 +28,8 @@ Because vanilla ops aren’t enough. StrictCraft doesn’t try to be flashy, it�
 ## ✅ Tested & Supported
 
 - 🧩 Works with Paper, Spigot, Purpur and Bukkit
-- 🧪 Tested on Minecraft `1.20.5+`  
-- ☕ Requires **Java 21 or higher**  
+- 🧪 Tested on Minecraft `1.18+`  
+- ☕ Requires **Java 17 or higher**  
 - 🔁 Plug, reload, enforce
 
 ---
