@@ -13,7 +13,7 @@ import org.json.simple.parser.JSONParser;
 
 public class Main extends JavaPlugin {
 
-    private static final String CURRENT_VERSION = "1.3";
+    private static final String CURRENT_VERSION = "1.4";
     private static final String SPIGOT_ID = "127094";
     private static final int BSTATS_PLUGIN_ID = 26464;
 
@@ -157,7 +157,7 @@ public class Main extends JavaPlugin {
                     getLogger().warning(" Download: https://spigotmc.org/resources/" + SPIGOT_ID);
                     getLogger().warning("====================================");
                 } else {
-                    getLogger().info("You're using the latest version.");
+                    getLogger().info("You're using the latest version!");
                 }
 
             } catch (Exception e) {

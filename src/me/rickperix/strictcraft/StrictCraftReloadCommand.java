@@ -17,7 +17,7 @@ public class StrictCraftReloadCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!sender.hasPermission("strictcraft.reload")) {
-            sender.sendMessage(ChatColor.RED + "You don't have permission to reload StrictCraft.");
+            sender.sendMessage(ChatColor.RED + "You don't have permission to reload StrictCraft!");
             return true;
         }
 
@@ -34,7 +34,7 @@ public class StrictCraftReloadCommand implements CommandExecutor {
             plugin.getGameModeMonitor().start();
         }
 
-        sender.sendMessage(ChatColor.GREEN + "StrictCraft configuration reloaded successfully.");
+        sender.sendMessage(ChatColor.GREEN + "StrictCraft configuration reloaded successfully!");
         return true;
     }
 }
