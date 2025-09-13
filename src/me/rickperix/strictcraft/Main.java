@@ -2,6 +2,7 @@ package me.rickperix.strictcraft;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,7 +14,7 @@ import org.json.simple.parser.JSONParser;
 
 public class Main extends JavaPlugin {
 
-    private static final String CURRENT_VERSION = "1.4";
+    private static final String CURRENT_VERSION = "1.5";
     private static final String SPIGOT_ID = "127094";
     private static final int BSTATS_PLUGIN_ID = 26464;
 
@@ -23,6 +24,10 @@ public class Main extends JavaPlugin {
     private CommandBlockProtector commandBlockProtector;
     private GameModeMonitor gameModeMonitor;
 
+    private StrictStatsManager statsManager;
+    private File statsFile;
+    private FileConfiguration statsConfig;
+
     @Override
     public void onEnable() {
         instance = this;
@@ -30,6 +35,9 @@ public class Main extends JavaPlugin {
         saveDefaultConfig();
         copyLicenseFile();
         copyReadmeFile();
+
+        setupStatsFile();
+        statsManager = new StrictStatsManager(this);
 
         configManager = new ConfigManager(this);
         commandBlocker = new CommandBlocker(this);
@@ -58,7 +66,9 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        gameModeMonitor.stop();
+        if (gameModeMonitor != null) {
+            gameModeMonitor.stop();
+        }
     }
 
     public static Main getInstance() {
@@ -79,6 +89,34 @@ public class Main extends JavaPlugin {
 
     public CommandBlockProtector getCommandBlockProtector() {
         return commandBlockProtector;
+    }
+
+    public StrictStatsManager getStatsManager() {
+        return statsManager;
+    }
+
+    public FileConfiguration getStatsConfig() {
+        return statsConfig;
+    }
+
+    public void saveStats() {
+        try {
+            statsConfig.save(statsFile);
+        } catch (IOException e) {
+            getLogger().warning("Failed to save stats.yml: " + e.getMessage());
+        }
+    }
+
+    private void setupStatsFile() {
+        statsFile = new File(getDataFolder(), "stats.yml");
+        if (!statsFile.exists()) {
+            try {
+                statsFile.createNewFile();
+            } catch (IOException e) {
+                getLogger().warning("Failed to create stats.yml: " + e.getMessage());
+            }
+        }
+        statsConfig = org.bukkit.configuration.file.YamlConfiguration.loadConfiguration(statsFile);
     }
 
     public void rebuildConfigManager() {

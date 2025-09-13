@@ -18,6 +18,7 @@ public class CommandBlockProtector implements Listener {
 
     private final Main plugin;
     private final Set<UUID> recentlyWarned = new HashSet<>();
+    private final Set<UUID> recentlyCounted = new HashSet<>();
 
     private boolean blockUsage;
     private String blockedMessage;
@@ -37,7 +38,6 @@ public class CommandBlockProtector implements Listener {
             blockUsage = true;
             blockedMessage = ChatColor.RED + "Command block protection active (default).";
         }
-
     }
 
     @EventHandler
@@ -52,6 +52,7 @@ public class CommandBlockProtector implements Listener {
         if (player.hasPermission("strictcraft.bypass")) return;
 
         event.setCancelled(true);
+        countOnce(player);
         sendOnce(player);
     }
 
@@ -67,6 +68,7 @@ public class CommandBlockProtector implements Listener {
         if (player.hasPermission("strictcraft.bypass")) return;
 
         event.setCancelled(true);
+        countOnce(player);
         sendOnce(player);
     }
 
@@ -82,6 +84,15 @@ public class CommandBlockProtector implements Listener {
             player.sendMessage(blockedMessage);
             plugin.getServer().getScheduler().runTaskLater(plugin, () ->
                     recentlyWarned.remove(id), 20L);
+        }
+    }
+
+    private void countOnce(Player player) {
+        UUID id = player.getUniqueId();
+        if (recentlyCounted.add(id)) {
+            plugin.getStatsManager().incrementCommandBlockInteraction();
+            plugin.getServer().getScheduler().runTaskLater(plugin, () ->
+                    recentlyCounted.remove(id), 1L);
         }
     }
 }

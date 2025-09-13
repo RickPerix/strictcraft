@@ -55,6 +55,7 @@ public class CommandBlocker implements Listener {
             if (message.equals(normalized) || message.startsWith(normalized + " ")) {
                 event.setCancelled(true);
                 event.getPlayer().sendMessage(blockedMessage);
+                plugin.getStatsManager().incrementBlockedCommand(normalized);
                 return;
             }
         }

@@ -38,6 +38,7 @@ public class GameModeMonitor {
 
                 if (player.getGameMode() == GameMode.CREATIVE) {
                     player.setGameMode(GameMode.SURVIVAL);
+                    plugin.getStatsManager().incrementBlockedGamemodeChange();
 
                     if (recentlyWarned.add(id)) {
                         player.sendMessage(ChatColor.RED + "Creative mode is not allowed. You were switched to Survival.");
