@@ -35,8 +35,7 @@ public class CommandBlocker implements Listener {
         }
 
         this.blockedMessage = ChatColor.translateAlternateColorCodes('&',
-                section != null ? section.getString("blocked-message", "&cThis command is blocked by StrictCraft.")
-                        : "&cThis command is blocked by StrictCraft.");
+                plugin.getConfig().getString("messages.command-blocked", "&cThis command is blocked by StrictCraft."));
     }
 
     @EventHandler

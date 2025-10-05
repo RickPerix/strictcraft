@@ -2,7 +2,7 @@
 # 🛡️ STRICTCRAFT CONFIGURATION FILE
 # =====================================
 # Configure restrictions for commands, game modes, block usage, and monitoring
-# Plugin version: 1.6 – by RickPerix
+# Plugin version: 1.7 – by RickPerix
 
 # -----------------------------
 # 🔐 CORE PROTECTION SETTINGS
@@ -32,18 +32,18 @@ blocked-commands:
     - "/gm 1"
     - "/gm c"
     - "/gamemode creative"
-    - "/gamemode c"
     - "/gamemode 1"
+    - "/gamemode c"
     - "/creative"
     - "/build"
     - "/instantbuild"
-    - "/fly creative"
     - "/creativefly"
+    - "/fly creative"
     - "/give"
     - "/minecraft:give"
     - "/enchant"
-    - "/effect"
     - "/minecraft:enchant"
+    - "/effect"
     - "/minecraft:effect"
     - "/item"
     - "/minecraft:item"
@@ -65,3 +65,19 @@ gamemode-enforcement:
 command-blocks:
   # Whether to block placing and interacting with command blocks
   block-usage: true
+
+# -----------------------------
+# 💬 CUSTOM PLAYER MESSAGES
+# -----------------------------
+messages:
+  # Message shown when a blocked command is used
+  command-blocked: "&cThis command is blocked by StrictCraft."
+
+  # Message shown when a player tries to place or interact with command blocks
+  commandblock-blocked: "&cYou cannot place or interact with command blocks."
+
+  # Message shown when a player attempts to switch to Creative mode
+  creative-blocked: "&cCreative mode is blocked by StrictCraft."
+
+  # Message shown when a player is automatically switched back to Survival
+  gamemode-enforced: "&cCreative mode is not allowed. You were switched to Survival."

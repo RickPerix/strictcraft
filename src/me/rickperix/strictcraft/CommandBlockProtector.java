@@ -31,13 +31,10 @@ public class CommandBlockProtector implements Listener {
     public void reload() {
         ConfigurationSection section = plugin.getConfig().getConfigurationSection("command-blocks");
 
-        if (section != null) {
-            blockUsage = section.getBoolean("block-usage", true);
-            blockedMessage = ChatColor.RED + "You cannot place or interact with command blocks.";
-        } else {
-            blockUsage = true;
-            blockedMessage = ChatColor.RED + "Command block protection active (default).";
-        }
+        blockUsage = (section != null) ? section.getBoolean("block-usage", true) : true;
+
+        blockedMessage = ChatColor.translateAlternateColorCodes('&',
+                plugin.getConfig().getString("messages.commandblock-blocked", "&cYou cannot place or interact with command blocks."));
     }
 
     @EventHandler

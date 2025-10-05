@@ -38,7 +38,8 @@ public class GameModeBlocker implements Listener {
             String normalized = cmd.toLowerCase().trim();
             if (normalized.contains("gamemode") && normalized.contains("creative")) {
                 event.setCancelled(true);
-                player.sendMessage(ChatColor.RED + "Creative mode is blocked by StrictCraft.");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                        plugin.getConfig().getString("messages.creative-blocked", "&cCreative mode is blocked by StrictCraft.")));
                 return;
             }
         }

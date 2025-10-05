@@ -41,7 +41,8 @@ public class GameModeMonitor {
                     plugin.getStatsManager().incrementBlockedGamemodeChange();
 
                     if (recentlyWarned.add(id)) {
-                        player.sendMessage(ChatColor.RED + "Creative mode is not allowed. You were switched to Survival.");
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                                plugin.getConfig().getString("messages.gamemode-enforced", "&cCreative mode is not allowed. You were switched to Survival.")));
                         Bukkit.getScheduler().runTaskLater(plugin, () -> recentlyWarned.remove(id), 20L);
                     }
                 }
