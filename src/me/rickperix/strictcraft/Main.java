@@ -14,7 +14,7 @@ import org.json.simple.parser.JSONParser;
 
 public class Main extends JavaPlugin {
 
-    private static final String CURRENT_VERSION = "1.7";
+    private static final String CURRENT_VERSION = "1.8";
     private static final String SPIGOT_ID = "127094";
     private static final int BSTATS_PLUGIN_ID = 26464;
 

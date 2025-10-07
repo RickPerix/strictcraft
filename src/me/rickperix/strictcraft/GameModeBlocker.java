@@ -7,8 +7,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerGameModeChangeEvent;
 
-import java.util.List;
-
 public class GameModeBlocker implements Listener {
 
     private final Main plugin;
@@ -18,30 +16,45 @@ public class GameModeBlocker implements Listener {
     }
 
     @EventHandler
-    public void onGameModeChange(PlayerGameModeChangeEvent event) {
+    public void onGamemodeShortcut(PlayerGameModeChangeEvent event) {
         Player player = event.getPlayer();
-        String name = player.getName();
-
-        if (!plugin.getConfigManager().isEnabled()) return;
-        if (!plugin.getConfigManager().isGamemodeEnforcementEnabled()) return;
-
-        if (plugin.getConfigManager().isPlayerExcluded(name)) return;
-        if (player.hasPermission("strictcraft.bypass")) return;
-
         GameMode newMode = event.getNewGameMode();
-        if (newMode != GameMode.CREATIVE) return;
 
-        List<String> blockedCommands = plugin.getConfig().getStringList("blocked-commands.list");
-        if (blockedCommands == null || blockedCommands.isEmpty()) return;
-
-        for (String cmd : blockedCommands) {
-            String normalized = cmd.toLowerCase().trim();
-            if (normalized.contains("gamemode") && normalized.contains("creative")) {
-                event.setCancelled(true);
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                        plugin.getConfig().getString("messages.creative-blocked", "&cCreative mode is blocked by StrictCraft.")));
-                return;
+        if (isShortcutBlocked(newMode)) {
+            event.setCancelled(true);
+            String message = getBlockMessage(newMode);
+            if (message != null && !message.isEmpty()) {
+                player.sendMessage(message);
             }
         }
+    }
+
+    private boolean isShortcutBlocked(GameMode newMode) {
+        String modeName = newMode.name().toLowerCase();
+
+        for (String rawCommand : plugin.getConfig().getStringList("blocked-commands.list")) {
+            String normalized = rawCommand.toLowerCase().replace("/", "").replace(":", "");
+
+            if (normalized.contains("gamemode") && normalized.contains(modeName)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private String getBlockMessage(GameMode newMode) {
+        String path = "messages." + newMode.name().toLowerCase() + "-blocked";
+        String configured = plugin.getConfig().getString(path);
+
+        if (configured != null) {
+            String trimmed = configured.trim();
+            if (!trimmed.isEmpty()) {
+                return ChatColor.translateAlternateColorCodes('&', trimmed);
+            }
+        }
+
+        String fallback = "&cSwitching to " + newMode.name() + " mode is blocked.";
+        return ChatColor.translateAlternateColorCodes('&', fallback);
     }
 }

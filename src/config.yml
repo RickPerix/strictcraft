@@ -2,7 +2,7 @@
 # 🛡️ STRICTCRAFT CONFIGURATION FILE
 # =====================================
 # Configure restrictions for commands, game modes, block usage, and monitoring
-# Plugin version: 1.7 – by RickPerix
+# Plugin version: 1.8 – by RickPerix
 
 # -----------------------------
 # 🔐 CORE PROTECTION SETTINGS
@@ -13,6 +13,7 @@ strictcraft:
 
   # List of players excluded from restrictions
   # These players will NOT be affected by command, gamemode, or block protections
+
   excluded-players:
     - "ExampleUser"
 
@@ -27,6 +28,7 @@ blocked-commands:
   #   list:
   #     - ""
   # (Do not remove the list or leave it undefined, as this may cause all commands to be blocked by default)
+
   list:
     - "/gmc"
     - "/gm 1"
@@ -47,6 +49,19 @@ blocked-commands:
     - "/minecraft:effect"
     - "/item"
     - "/minecraft:item"
+
+  # ⛔ F3+F4 shortcut blocking:
+  # To block the F3+F4 shortcut that allows players to switch between Minecraft game modes,
+  # you need to add specific commands like /gamemode spectator or /gamemode creative to the blocked-commands list.
+  # If one of these commands is listed, the shortcut will be blocked for that mode — and the command itself will also be blocked.
+  #
+  # NOTE: commands like /minecraft:gamemode creative are treated the same way,
+  # as long as they include both "gamemode" and the name of a Minecraft game mode (creative, spectator, survival, adventure).
+  #
+  # For example, a command like /customplugin:gamemode adventure will still block the shortcut to Adventure mode,
+  # because it contains both "gamemode" and one of the Minecraft game mode names.
+  # It doesn't matter what other words or prefixes are included, if those two parts are present,
+  # the shortcut to that specific game mode will be blocked.
 
 # -----------------------------
 # 🎮 GAME MODE MONITORING
@@ -73,11 +88,21 @@ messages:
   # Message shown when a blocked command is used
   command-blocked: "&cThis command is blocked by StrictCraft."
 
+  # Message shown when a player is automatically switched back to Survival
+  gamemode-enforced: "&cCreative mode is not allowed. You were switched to Survival."
+
   # Message shown when a player tries to place or interact with command blocks
   commandblock-blocked: "&cYou cannot place or interact with command blocks."
 
+  # ⛔ F3+F4 shortcut blocking messages:
   # Message shown when a player attempts to switch to Creative mode
   creative-blocked: "&cCreative mode is blocked by StrictCraft."
 
-  # Message shown when a player is automatically switched back to Survival
-  gamemode-enforced: "&cCreative mode is not allowed. You were switched to Survival."
+  # Message shown when a player attempts to switch to Spectator mode
+  spectator-blocked: "&cSpectator mode is blocked by StrictCraft."
+
+  # Message shown when a player attempts to switch to Survival mode
+  survival-blocked: "&cSurvival mode is blocked by StrictCraft."
+
+  # Message shown when a player attempts to switch to Adventure mode
+  adventure-blocked: "&cAdventure mode is blocked by StrictCraft."
