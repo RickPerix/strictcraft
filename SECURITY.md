@@ -9,7 +9,7 @@ StrictCraft receives a security update for every of the following versions:
 |   Lastest Versions   | ✅ :white_check_mark: |
 |    Older Versions    | ❌ :x:                |
 
-StrictCraft receives security updates with every new stable release. Very old versions will no longer receive fixes or improvements..
+StrictCraft receives security updates with every new stable release. Very old versions will no longer receive fixes or improvements.
 
 To ensure full functionality and maximum security, always keep StrictCraft updated to the latest version.
 
