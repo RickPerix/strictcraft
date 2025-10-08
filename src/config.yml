@@ -1,7 +1,7 @@
 # =====================================
 # 🛡️ STRICTCRAFT CONFIGURATION FILE
 # =====================================
-# Configure restrictions for commands, game modes, block usage, and monitoring
+# Configure restrictions for commands, gamemodes, block usage, and monitoring
 # Plugin version: 1.8 – by RickPerix
 
 # -----------------------------
@@ -30,38 +30,39 @@ blocked-commands:
   # (Do not remove the list or leave it undefined, as this may cause all commands to be blocked by default)
 
   list:
-    - "/gmc"
-    - "/gm 1"
-    - "/gm c"
-    - "/gamemode creative"
-    - "/gamemode 1"
-    - "/gamemode c"
-    - "/creative"
-    - "/build"
-    - "/instantbuild"
-    - "/creativefly"
-    - "/fly creative"
     - "/give"
     - "/minecraft:give"
+    - "/item"
+    - "/minecraft:item"
     - "/enchant"
     - "/minecraft:enchant"
     - "/effect"
     - "/minecraft:effect"
-    - "/item"
-    - "/minecraft:item"
+    - "/advancement"
+    - "/minecraft:advancement"
+    - "/xp"
+    - "/minecraft:xp"
+    - "/experience"
+    - "/minecraft:experience"
+    - "/gamemode creative"
 
-  # ⛔ F3+F4 shortcut blocking:
-  # To block the F3+F4 shortcut that allows players to switch between Minecraft game modes,
-  # you need to add specific commands like /gamemode spectator or /gamemode creative to the blocked-commands list.
-  # If one of these commands is listed, the shortcut will be blocked for that mode — and the command itself will also be blocked.
+  # ⛔ Gamemode blocking logic:
+  # When you add a command to the blocked-commands list that contains both "gamemode" and the name of a Minecraft gamemode
+  # (creative, spectator, survival, adventure), the plugin will block ALL attempts to switch to that mode, not just the command itself.
   #
-  # NOTE: commands like /minecraft:gamemode creative are treated the same way,
-  # as long as they include both "gamemode" and the name of a Minecraft game mode (creative, spectator, survival, adventure).
+  # This means:
+  # - Every command that tries to switch the player's gamemode to that mode will be blocked.
+  # - The F3+F4 shortcut will be blocked for that mode.
+  # - Even if a plugin, the console or a command block tries to change a player's gamemode, it will be blocked.
   #
-  # For example, a command like /customplugin:gamemode adventure will still block the shortcut to Adventure mode,
-  # because it contains both "gamemode" and one of the Minecraft game mode names.
-  # It doesn't matter what other words or prefixes are included, if those two parts are present,
-  # the shortcut to that specific game mode will be blocked.
+  # ✅ Example:
+  # If you add "/gamemode creative" to the list, the plugin will block:
+  # - Every command that tries to switch player's gamemode to creative mode.
+  # - F3+F4 shortcut to Creative.
+  # - Any plugin, console command or command block that tries to set a player to Creative.
+  #
+  # The plugin doesn't just block the command, it blocks the actual gamemode change itself.
+  # This ensures full protection, no matter how the gamemode switch is triggered.
 
 # -----------------------------
 # 🎮 GAME MODE MONITORING
@@ -94,7 +95,7 @@ messages:
   # Message shown when a player tries to place or interact with command blocks
   commandblock-blocked: "&cYou cannot place or interact with command blocks."
 
-  # ⛔ F3+F4 shortcut blocking messages:
+  # ⛔ Messages for blocked gamemodes:
   # Message shown when a player attempts to switch to Creative mode
   creative-blocked: "&cCreative mode is blocked by StrictCraft."
 
