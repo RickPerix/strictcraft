@@ -2,15 +2,16 @@
 
 ## ✅ Supported Versions
 
-StrictCraft receives security updates for the following versions:
+StrictCraft receives a security update for every of the following versions:
 
-| Version | Supported           |
-|---------|---------------------|
-|   1.0   | ✅ :white_check_mark: |
-| < 1.0   | ❌ :x:                 |
+| Version | Will they include a new security update? |
+|---------|------------------------------------------|
+|   Lastest Versions   | ✅ :white_check_mark: |
+|    Older Versions    | ❌ :x:                |
 
-Only the latest stable release (1.0) is actively maintained for security patches and vulnerability fixes.  
-Older versions are not supported.
+StrictCraft receives security updates with every new stable release. Very old versions will no longer receive fixes or improvements..
+
+To ensure full functionality and maximum security, always keep StrictCraft updated to the latest version.
 
 ---
 
