@@ -128,7 +128,7 @@ public class Main extends JavaPlugin {
         if (!target.exists()) {
             InputStream resource = getResource("LICENSE.txt");
             if (resource != null) {
-                saveResource("LICENSE.txt", false);
+                saveResource("LICENSE.txt", true);
                 getLogger().info("LICENSE.txt successfully copied to plugin folder.");
             } else {
                 getLogger().warning("LICENSE.txt not found inside plugin jar.");
