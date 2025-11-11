@@ -44,5 +44,5 @@ Need help or want to report an issue? Reach out on Discord: `https://discord.gg/
 
 Crafted with care by **RickPerix** 🛠
 
-Enjoy StrictCraft!
+Enjoy StrictCraft!   
 **Simple. Strong. Strict.**
