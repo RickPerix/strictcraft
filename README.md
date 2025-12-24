@@ -10,12 +10,12 @@ If you're running an SMP, PvP or hardcore survival server and want zero toleranc
 
 ## ✨ Features
 
-- 🔐 Block Creative mode by command or forced switch  
-- 🚫 Disable high-risk commands (`/give`, `/enchant`, `/build`, and more)  
-- 🎮 Enforce Survival gamemode with periodic checks  
-- 🧱 Command block placement prevention  
-- 📁 Simple YAML config with only what matters  
-- 🧰 No performance impact, no weird dependencies  
+- 🔐 Block Creative mode by command or forced switch
+- 🚫 Disable high-risk commands (`/give`, `/enchant`, `/build`, and more)
+- 🎮 Enforce Survival gamemode with periodic checks
+- 🧱 Command block placement prevention
+- 📁 Simple YAML config with only what matters
+- 🧰 No performance impact, no weird dependencies
 
 ---
 
@@ -28,21 +28,21 @@ Because vanilla ops aren’t enough. StrictCraft doesn’t try to be flashy, it�
 ## ✅ Tested & Supported
 
 - 🧩 Works with Paper, Spigot, Purpur and Bukkit
-- 🧪 Tested on Minecraft `1.18+`  
-- ☕ Requires **Java 17 or higher**  
+- 🧪 Tested on Minecraft `1.18+`
+- ☕ Requires **Java 17 or higher**
 - 🔁 Plug, reload, enforce
 
 ---
 
 ## 📄 License & Support
 
-This project is released under this [MIT License](https://github.com/RickPerix/strictcraft/blob/main/LICENSE) 
+This project is released under this [MIT License](https://github.com/RickPerix/strictcraft/blob/main/LICENSE)
 
 Need help or want to report an issue? Reach out on Discord: `https://discord.gg/b4MFEa7tkP`
 
 ---
 
-Crafted with care by **RickPerix** 🛠  
+Crafted with care by **RickPerix** 🛠
 
-Enjoy StrictCraft!
+Enjoy StrictCraft!   
 **Simple. Strong. Strict.**
