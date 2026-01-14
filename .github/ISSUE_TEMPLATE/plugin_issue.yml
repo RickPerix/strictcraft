@@ -1,0 +1,151 @@
+name: Plugin Issue Report
+description: Report an issue related to this plugin
+title: "[PLUGIN ISSUE] Short description"
+labels: ["plugin-issue"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Plugin Issue Report
+        Thank you for reporting an issue related to this plugin.
+        Please fill out the form below with as much detail as possible so I can diagnose and fix the problem efficiently.
+
+  - type: textarea
+    id: issue_summary
+    attributes:
+      label: Issue summary
+      description: Provide a short summary of the issue.
+      placeholder: "Short description of the problem"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: Describe exactly what occurred and why it is a problem.
+      placeholder: |
+        Example:
+        - The plugin throws an error on startup
+        - A command does not work
+        - A feature behaves incorrectly
+        - Something breaks after a server reload
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected behavior
+      description: Describe what should have happened instead.
+      placeholder: "Explain the correct or expected behavior"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Steps to reproduce
+      description: List the steps required to reproduce the issue.
+      placeholder: |
+        1. Start the server
+        2. Execute a command or action
+        3. Observe the issue
+    validations:
+      required: true
+
+  - type: dropdown
+    id: reproducibility
+    attributes:
+      label: Is the issue reproducible?
+      options:
+        - Always
+        - Sometimes
+        - Only under specific conditions
+        - I don't know
+    validations:
+      required: true
+
+  - type: input
+    id: server_version
+    attributes:
+      label: Server version
+      description: Include the exact server version.
+      placeholder: "Example: Paper 1.20.4"
+    validations:
+      required: true
+
+  - type: input
+    id: plugin_version
+    attributes:
+      label: Plugin version
+      description: Specify the plugin version if known.
+      placeholder: "Example: v1.3.2"
+    validations:
+      required: false
+
+  - type: textarea
+    id: config_used
+    attributes:
+      label: Relevant configuration (optional)
+      description: Paste any relevant part of the plugin configuration that may be related to the issue.
+      placeholder: |
+        Example:
+        settings:
+          enable-feature: true
+          cooldown: 5
+    validations:
+      required: false
+
+  - type: textarea
+    id: console_errors
+    attributes:
+      label: Console errors or stack traces
+      description: Paste any relevant errors from the console.
+      placeholder: "Paste stack traces or error logs here"
+    validations:
+      required: false
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies installed (optional)
+      description: List any dependencies required by this plugin.
+      placeholder: |
+        Example:
+        - PlaceholderAPI: installed
+        - Vault: installed
+        - LuckPerms: installed
+    validations:
+      required: false
+
+  - type: textarea
+    id: permissions
+    attributes:
+      label: Permissions involved (optional)
+      description: If the issue may be related to permissions, list the permissions used.
+      placeholder: |
+        Example:
+        - plugin.use
+        - plugin.admin
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical (plugin unusable)
+        - High (major functionality broken)
+        - Medium (some features not working)
+        - Low (minor issue or cosmetic problem)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional information
+      description: Add anything else that may help diagnose the issue.
+      placeholder: "Optional notes"
