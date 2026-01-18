@@ -21,7 +21,7 @@ strictcraft:
 # 🚫 BLOCKED COMMAND SETTINGS
 # -----------------------------
 blocked-commands:
-  # List of command prefixes to block for all players
+  # List of command prefixes to block for all players except those in the excluded-player list
   # Matching is case-insensitive and based on the start of the command
   #
   # To disable command blocking entirely, use:
