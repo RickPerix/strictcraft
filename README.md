@@ -27,7 +27,7 @@ Because vanilla ops aren’t enough. StrictCraft doesn’t try to be flashy, it�
 
 ## ✅ Tested & Supported
 
-- 🧩 Works with Paper, Spigot, Purpur, Bukkit, Folia, BugeeCord, Velocity and Waterfall
+- 🧩 Works with Paper, Spigot, Purpur, Bukkit, Folia
 - ☕ Requires **Java 17 or higher**
 - 🔁 Plug, reload, enforce
 
