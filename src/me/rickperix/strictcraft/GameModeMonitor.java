@@ -36,7 +36,6 @@ public class GameModeMonitor {
                 UUID id = player.getUniqueId();
 
                 if (plugin.getConfigManager().isPlayerExcluded(name)) continue;
-                if (player.hasPermission("strictcraft.bypass")) continue;
 
                 if (player.getGameMode() == GameMode.CREATIVE) {
                     player.setGameMode(GameMode.SURVIVAL);

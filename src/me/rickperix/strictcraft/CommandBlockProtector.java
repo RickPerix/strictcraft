@@ -46,7 +46,6 @@ public class CommandBlockProtector implements Listener {
 
         if (player == null || plugin.getConfigManager().isPlayerExcluded(player.getName())) return;
         if (block == null || !isCommandBlock(block.getType())) return;
-        if (player.hasPermission("strictcraft.bypass")) return;
 
         event.setCancelled(true);
         countOnce(player);
@@ -62,7 +61,6 @@ public class CommandBlockProtector implements Listener {
 
         if (player == null || plugin.getConfigManager().isPlayerExcluded(player.getName())) return;
         if (block == null || !isCommandBlock(block.getType())) return;
-        if (player.hasPermission("strictcraft.bypass")) return;
 
         event.setCancelled(true);
         countOnce(player);

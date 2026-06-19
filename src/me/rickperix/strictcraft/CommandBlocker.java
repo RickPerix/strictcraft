@@ -47,7 +47,6 @@ public class CommandBlocker implements Listener {
 
         if (!plugin.getConfigManager().isEnabled()) return;
         if (plugin.getConfigManager().isPlayerExcluded(playerName)) return;
-        if (event.getPlayer().hasPermission("strictcraft.bypass")) return;
 
         for (String cmd : blockedCommands) {
             String normalized = cmd.toLowerCase().trim();

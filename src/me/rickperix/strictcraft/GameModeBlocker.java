@@ -17,8 +17,12 @@ public class GameModeBlocker implements Listener {
 
     @EventHandler
     public void onGamemodeShortcut(PlayerGameModeChangeEvent event) {
+        if (!plugin.getConfigManager().isEnabled()) return;
+
         Player player = event.getPlayer();
         GameMode newMode = event.getNewGameMode();
+
+        if (plugin.getConfigManager().isPlayerExcluded(player.getName())) return;
 
         if (isShortcutBlocked(newMode)) {
             event.setCancelled(true);

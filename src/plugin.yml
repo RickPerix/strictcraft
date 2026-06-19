@@ -1,5 +1,5 @@
 name: StrictCraft
-version: 2.0
+version: 2.1
 main: me.rickperix.strictcraft.Main
 api-version: 1.18
 author: RickPerix
@@ -16,6 +16,3 @@ permissions:
     description: Allows reloading StrictCraft configuration via /strictcraftreload
     default: op
 
-  strictcraft.bypass:
-    description: Allows player to bypass all plugin restrictions
-    default: false
